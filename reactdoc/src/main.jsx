@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { FormThree } from "./components/reactingToInput/howtoreacttoinput";
+import { Picture } from "./components/reactingToInput/howtoreacttoinput";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <FormThree />
+    <Picture />
   </React.StrictMode>
 );

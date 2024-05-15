@@ -5,6 +5,7 @@
 //thats why it is too hectic to look for vanilla js to create such things
 
 import { Fragment, useState } from "react";
+import "./../../style.css";
 
 //react works on declarative approach
 //how React developer think for a state
@@ -130,4 +131,56 @@ function submitForm(answer) {
       }
     }, 1500);
   });
+}
+
+//Q1
+
+//wrong way
+// export function Picture() {
+//   const [bcg, setBcg] = useState("background background--active");
+//   const [pic, setPic] = useState("picture");
+
+//   // function handlePicClick() {
+//   //   setBcg("background");
+//   //   setPic("picture picture--active");
+//   // }
+//   function handleBcgClick() {
+//     setBcg("background background--active");
+//     setPic("picture");
+//   }
+//   return (
+//     <div className={bcg} onClick={handleBcgClick}>
+//       <img
+//         className={pic}
+//         alt="Rainbow houses in Kampung Pelangi, Indonesia"
+//         src="https://i.imgur.com/5qwVYb1.jpeg"
+//       />
+//     </div>
+//   );
+// }
+
+export function Picture() {
+  const [isActive, setActive] = useState(false);
+  let backgroundClassName = "background";
+  let pictureClassName = "picture";
+
+  if (isActive) {
+    pictureClassName += " picture--active";
+  } else {
+    backgroundClassName += " background--active";
+  }
+
+  return (
+    <div className={backgroundClassName} onClick={() => setActive(false)}>
+      <img
+        onClick={(e) => {
+          e.stopPropagation();
+          setActive(true);
+        }}
+        className={pictureClassName}
+        alt="Rainbow houses in Kampung Pelangi, Indonesia"
+        src="https://i.imgur.com/5qwVYb1.jpeg"
+      />
+    </div>
+  );
 }
